@@ -47,6 +47,17 @@ public class Board implements Printable{
 		}
 		System.out.println();
 	}
+
+	/*
+	 * Método que posiciona os jogores no tabuleiro chama o método
+	 * que move o jogador
+	 */
+	public void setupCouters(Counter[] counters) {
+		for (Counter counter : counters) {
+			counter.goTo(spaceStartHere);
+		}
+		
+	}
 	
 
 }

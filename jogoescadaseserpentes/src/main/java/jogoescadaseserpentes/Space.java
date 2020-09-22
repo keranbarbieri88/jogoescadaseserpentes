@@ -8,6 +8,26 @@ public class Space {
 	
 	private int number;
 	private Type type;
+
+	public Space(int number, Type type) {
+		super();
+		this.number = number;
+		this.type = type;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	@Override
+	public String toString() {
+		return "Space [number=" + number + ", type=" + type + "]";
+	}
+	
 	
 
 }

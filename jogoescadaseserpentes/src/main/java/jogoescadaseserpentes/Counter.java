@@ -23,10 +23,16 @@ public class Counter {
 	 * Método que move o jogador e armazena onde ele está
 	 */
 	public void goTo(Space space) {
-		currentSpace = space;
-		
+		currentSpace = space;	
 	}
-	
+	public void play(Board board) {
+		Dice dice = Dice.get();
+		int diceNumber = dice.roll();
+		
+		System.out.format("Joagador '%s' jogou o dado e o resultado foi %d\n", name, diceNumber);
+		
+		board.move(this, diceNumber);
+	}
 	
 
 }

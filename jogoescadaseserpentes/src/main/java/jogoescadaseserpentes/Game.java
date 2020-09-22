@@ -13,16 +13,19 @@ public class Game {
 		Counters counters = new Counters( board, NUM_PLAYERS);
 		counters.print();
 		
-		while (true) {
+		while (! board.gameFinished()) {
 			Counter currentCounter = counters.next();
 			currentCounter.play(board);
 			
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		Counter winnerCounter = board.getWinnerCounter();
+		System.out.format("Jogador '%s' GANHOU!!!\n", winnerCounter.getName());
 	}
 
 }

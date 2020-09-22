@@ -29,7 +29,7 @@ public class Counter {
 		Dice dice = Dice.get();
 		int diceNumber = dice.roll();
 		
-		System.out.format("Joagador '%s' jogou o dado e o resultado foi %d\n", name, diceNumber);
+		System.out.format("Jogador '%s' jogou o dado e o resultado foi %d\n", name, diceNumber);
 		
 		board.move(this, diceNumber);
 	}

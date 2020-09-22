@@ -9,6 +9,7 @@ public class Board implements Printable{
 	private Space[] spaces;
 	private Space spaceHome;
 	private Space spaceStartHere;
+	private Counter winnerCounter;
 	
 	/*
 	 * Número de espaços mais 2
@@ -59,18 +60,31 @@ public class Board implements Printable{
 		
 	}
 
+	/*
+	 * Método que move o jogador
+	 */
 	public void move(Counter counter, int diceNumber) {
 		Space space = counter.getCurrentSpace();
 		 int newSpaceNumber = space.getNumber() + diceNumber;
 		 
 		 Space newSpace;
-		 if (newSpaceNumber > spaceHome.getNumber()) {
+		 if (newSpaceNumber >= spaceHome.getNumber()) {
 			 newSpace = spaceHome;
+			 winnerCounter = counter;
+			 
 		 } else {
 			 newSpace = spaces[newSpaceNumber];
 		 }
 		 counter.goTo(newSpace);
 		 System.out.format("Jogador '%s' foi para a casa %s\n", counter.getName(), newSpace);
+	}
+	
+	public Counter getWinnerCounter() {
+		return winnerCounter;
+	}
+	
+	public boolean gameFinished() {
+		return winnerCounter != null;
 	}
 	
 

@@ -25,9 +25,13 @@ public class Space {
 
 	@Override
 	public String toString() {
-		return "Space [number=" + number + ", type=" + type + "]";
-	}
-	
+		if (type == Type.REGULAR) {
+			return String.valueOf(number);
+		} else {
+			return number + " ( " + type + ")";
+		}
+
+		}
 	
 
 }

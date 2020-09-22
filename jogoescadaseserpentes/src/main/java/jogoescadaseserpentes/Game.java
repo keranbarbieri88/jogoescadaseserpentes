@@ -13,6 +13,16 @@ public class Game {
 		Counters counters = new Counters( board, NUM_PLAYERS);
 		counters.print();
 		
+		while (true) {
+			Counter currentCounter = counters.next();
+			currentCounter.play(board);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

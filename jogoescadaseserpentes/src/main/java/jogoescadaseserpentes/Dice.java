@@ -16,7 +16,7 @@ public class Dice {
 	 * Singleton - retorna sempre a mesma instância
 	 */
 	public static Dice get() {
-		if(instance != null) {
+		if(instance == null) {
 		instance =  new Dice();
 	}
 		return instance;

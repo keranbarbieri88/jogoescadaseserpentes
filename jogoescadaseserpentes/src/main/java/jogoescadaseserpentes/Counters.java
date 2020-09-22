@@ -7,7 +7,7 @@ package jogoescadaseserpentes;
 public class Counters implements Printable{
 	
 	private Counter[] counters;
-	private int currentCounterIndex;
+	private int currentCounterIndex = -1;
 	
 	/*
 	 * Gerenciador, cada jogador recebe como nome uma letra
@@ -17,7 +17,7 @@ public class Counters implements Printable{
 		char currentName = 'A';
 		
 		/*
-		 * imcrementa os jogadores de acordo com a quatidade informada
+		 * Incrementa os jogadores de acordo com a quatidade informada
 		 */
 		for (int i = 0; i <counters.length; i++) {
 			counters[i] = new Counter(String.valueOf(currentName));
@@ -30,9 +30,16 @@ public class Counters implements Printable{
 		board.setupCouters(counters);
 		
 	}
+	/* 
+	 * Método para o próximo jogador do array
+	 */
+	public Counter next() {
+		currentCounterIndex = (currentCounterIndex + 1) % counters.length;
+		return counters[currentCounterIndex];
+	}
 
 	/*
-	 * Sobrescreve informado as posições de cada jogador
+	 * Método que sobrescreve informado as posições de cada jogador
 	 */
 	@Override
 	public void print() {

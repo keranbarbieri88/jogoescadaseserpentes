@@ -8,6 +8,7 @@ public class Space {
 	
 	private int number;
 	private Type type;
+	private Transition transition;
 
 	public Space(int number, Type type) {
 		super();
@@ -21,6 +22,15 @@ public class Space {
 
 	public Type getType() {
 		return type;
+	}
+	
+
+	public Transition getTransition() {
+		return transition;
+	}
+
+	public void setTransition(Transition transition) {
+		this.transition = transition;
 	}
 
 	@Override
